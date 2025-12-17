@@ -1,13 +1,46 @@
 @import "tailwindcss";
 
+/* ============================================================================
+   CSS CUSTOM PROPERTIES (Theme Variables)
+   ============================================================================ */
+
 :root {
+  /* Default theme: Dark */
+  --color-bg: #0f172a;
+  --color-bg-alt: #1e293b;
+  --color-bg-elevated: #334155;
+  --color-bg-overlay: rgba(0, 0, 0, 0.6);
+
+  --color-text: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-text-subtle: #64748b;
+
+  --color-border: #334155;
+  --color-border-strong: #475569;
+  --color-border-subtle: #1e293b;
+
+  --color-hover: #334155;
+  --color-active: #475569;
+  --color-focus: rgba(99, 102, 241, 0.3);
+  --color-selected: #312e81;
+
+  --color-input-bg: #1e293b;
+  --color-input-border: #475569;
+  --color-input-placeholder: #64748b;
+
+  --color-scrollbar-track: #1e293b;
+  --color-scrollbar-thumb: #475569;
+  --color-scrollbar-thumb-hover: #64748b;
+
+  /* Typography */
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #0f172a;
+  /* Rendering */
+  color-scheme: dark;
+  color: var(--color-text);
+  background-color: var(--color-bg);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,10 +48,113 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Light theme variables */
+[data-theme="light"] {
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8fafc;
+  --color-bg-elevated: #ffffff;
+  --color-bg-overlay: rgba(0, 0, 0, 0.3);
+
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-text-subtle: #94a3b8;
+
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --color-border-subtle: #f1f5f9;
+
+  --color-hover: #f1f5f9;
+  --color-active: #e2e8f0;
+  --color-focus: rgba(79, 70, 229, 0.2);
+  --color-selected: #eef2ff;
+
+  --color-input-bg: #ffffff;
+  --color-input-border: #cbd5e1;
+  --color-input-placeholder: #94a3b8;
+
+  --color-scrollbar-track: #f1f5f9;
+  --color-scrollbar-thumb: #cbd5e1;
+  --color-scrollbar-thumb-hover: #94a3b8;
+
+  color-scheme: light;
+}
+
+/* Medium theme variables */
+[data-theme="medium"] {
+  --color-bg: #e2e8f0;
+  --color-bg-alt: #cbd5e1;
+  --color-bg-elevated: #f1f5f9;
+  --color-bg-overlay: rgba(0, 0, 0, 0.4);
+
+  --color-text: #1e293b;
+  --color-text-muted: #475569;
+  --color-text-subtle: #64748b;
+
+  --color-border: #94a3b8;
+  --color-border-strong: #64748b;
+  --color-border-subtle: #cbd5e1;
+
+  --color-hover: #cbd5e1;
+  --color-active: #94a3b8;
+  --color-focus: rgba(79, 70, 229, 0.25);
+  --color-selected: #c7d2fe;
+
+  --color-input-bg: #f1f5f9;
+  --color-input-border: #94a3b8;
+  --color-input-placeholder: #64748b;
+
+  --color-scrollbar-track: #cbd5e1;
+  --color-scrollbar-thumb: #94a3b8;
+  --color-scrollbar-thumb-hover: #64748b;
+
+  color-scheme: light;
+}
+
+/* Very Dark theme variables */
+[data-theme="veryDark"] {
+  --color-bg: #020617;
+  --color-bg-alt: #0f172a;
+  --color-bg-elevated: #1e293b;
+  --color-bg-overlay: rgba(0, 0, 0, 0.8);
+
+  --color-text: #f8fafc;
+  --color-text-muted: #cbd5e1;
+  --color-text-subtle: #94a3b8;
+
+  --color-border: #1e293b;
+  --color-border-strong: #334155;
+  --color-border-subtle: #0f172a;
+
+  --color-hover: #1e293b;
+  --color-active: #334155;
+  --color-focus: rgba(99, 102, 241, 0.4);
+  --color-selected: #1e1b4b;
+
+  --color-input-bg: #0f172a;
+  --color-input-border: #334155;
+  --color-input-placeholder: #64748b;
+
+  --color-scrollbar-track: #0f172a;
+  --color-scrollbar-thumb: #334155;
+  --color-scrollbar-thumb-hover: #475569;
+
+  color-scheme: dark;
+}
+
+/* ============================================================================
+   BASE STYLES
+   ============================================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 #root {
@@ -26,9 +162,109 @@ body {
   height: 100vh;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #1e293b;
-    background-color: #f8fafc;
-  }
+/* ============================================================================
+   FOCUS STYLES
+   ============================================================================ */
+
+/* Remove default focus outline and add custom */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   SCROLLBAR STYLES
+   ============================================================================ */
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-scrollbar-track);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-scrollbar-thumb-hover);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
+}
+
+/* ============================================================================
+   SELECTION STYLES
+   ============================================================================ */
+
+::selection {
+  background-color: rgba(99, 102, 241, 0.3);
+  color: inherit;
+}
+
+/* ============================================================================
+   TRANSITION UTILITIES
+   ============================================================================ */
+
+/* Smooth transitions for theme changes */
+.theme-transition,
+.theme-transition * {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* ============================================================================
+   CUSTOM UTILITY CLASSES
+   ============================================================================ */
+
+/* Glass effect for modals/overlays */
+.glass {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* No scrollbar utility */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Drag handle for Tauri window */
+.drag-region {
+  -webkit-app-region: drag;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* Text truncation */
+.truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
