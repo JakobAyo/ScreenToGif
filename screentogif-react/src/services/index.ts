@@ -37,3 +37,9 @@ export {
   t,
   tp,
 } from './LocalizationService';
+
+// Tray Service
+export { TrayService } from './TrayService';
+
+// Global Hotkey Service
+export { GlobalHotkeyService } from './GlobalHotkeyService';

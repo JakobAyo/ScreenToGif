@@ -4,3 +4,4 @@ export { useHotkeys, useHotkey, formatHotkey, COMMON_HOTKEYS, type HotkeyConfig,
 export { useLocalStorage, useLocalStorageBoolean, useLocalStorageNumber, type UseLocalStorageOptions } from './useLocalStorage';
 export { useDebounce, useDebouncedCallback, useDebouncedCallbackImmediate, useThrottle, useThrottledCallback } from './useDebounce';
 export { useWindowSize, useBreakpoint, useWindowFocus, useDocumentVisibility, useElementSize, type WindowSize, type UseWindowSizeOptions, type Breakpoint } from './useWindowSize';
+export { useGlobalHotkey, useGlobalHotkeyHandler, useDisableGlobalHotkeys } from './useGlobalHotkeys';
