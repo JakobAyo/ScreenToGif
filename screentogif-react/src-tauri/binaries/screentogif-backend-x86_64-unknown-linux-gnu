@@ -1,0 +1,6 @@
+#!/bin/bash
+# Placeholder sidecar - Replace with actual C# backend binary after building
+# Run: dotnet publish backend/ScreenToGif.Backend -c Release -r linux-x64 --self-contained
+echo "Placeholder sidecar - Backend not yet built"
+echo "Please build the C# backend first using: ./scripts/build-backend.sh"
+exit 1
