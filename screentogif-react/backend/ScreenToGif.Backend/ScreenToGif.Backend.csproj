@@ -11,4 +11,8 @@
     <RuntimeIdentifiers>win-x64;osx-x64;osx-arm64;linux-x64</RuntimeIdentifiers>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ScreenToGif.Domain\ScreenToGif.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
