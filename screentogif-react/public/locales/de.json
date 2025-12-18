@@ -1,0 +1,128 @@
+{
+  "app": {
+    "name": "ScreenToGif",
+    "version": "Version {{version}}",
+    "tagline": "Bildschirm-, Webcam- und Sketchboard-Aufnahme"
+  },
+  "nav": {
+    "home": "Start",
+    "recorder": "Aufnahme",
+    "webcam": "Webcam",
+    "board": "Zeichenbrett",
+    "editor": "Editor",
+    "settings": "Einstellungen",
+    "about": "Über"
+  },
+  "startup": {
+    "title": "Aufnahme starten",
+    "recent": "Letzte Projekte",
+    "noRecent": "Keine letzten Projekte",
+    "noRecentDescription": "Starten Sie eine neue Aufnahme oder öffnen Sie ein bestehendes Projekt",
+    "openProject": "Projekt öffnen"
+  },
+  "recorder": {
+    "title": "Bildschirmaufnahme",
+    "source": {
+      "title": "Aufnahmequelle",
+      "screen": "Bildschirm",
+      "window": "Fenster",
+      "region": "Bereich",
+      "selectDisplay": "Wählen Sie einen Bildschirm aus",
+      "selectWindow": "Wählen Sie ein Fenster aus"
+    },
+    "controls": {
+      "start": "Aufnahme starten",
+      "pause": "Pause",
+      "resume": "Fortsetzen",
+      "stop": "Stopp",
+      "discard": "Verwerfen"
+    },
+    "settings": {
+      "title": "Aufnahmeeinstellungen",
+      "frameRate": "Bildrate",
+      "cursor": "Mauszeiger aufnehmen",
+      "clicks": "Mausklicks hervorheben",
+      "countdown": "Countdown anzeigen",
+      "startSound": "Startsignal abspielen",
+      "stopSound": "Stoppsignal abspielen"
+    },
+    "status": {
+      "ready": "Bereit",
+      "recording": "Aufnahme läuft",
+      "paused": "Pausiert",
+      "starting": "Wird gestartet...",
+      "stopping": "Wird gestoppt..."
+    }
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "general": {
+      "title": "Allgemein",
+      "description": "Darstellung, Sprache und Startverhalten",
+      "theme": {
+        "title": "Design",
+        "light": "Hell",
+        "dark": "Dunkel",
+        "system": "System"
+      },
+      "language": {
+        "title": "Sprache",
+        "description": "Wählen Sie Ihre bevorzugte Sprache"
+      }
+    },
+    "hotkeys": {
+      "title": "Tastenkürzel",
+      "description": "Tastaturkürzel und Tastenbelegungen",
+      "global": "Globale Tastenkürzel aktivieren",
+      "conflict": "Tastaturkonflikt",
+      "reset": "Zurücksetzen",
+      "resetAll": "Alle zurücksetzen"
+    },
+    "storage": {
+      "title": "Speicher",
+      "description": "Cache, temporäre Dateien und Arbeitsspeicher",
+      "cache": "Cache",
+      "tempFolder": "Speicherort für temporäre Dateien",
+      "clearCache": "Cache leeren"
+    },
+    "about": {
+      "title": "Über",
+      "description": "Versionsinformationen, Lizenz und Mitwirkende",
+      "version": "Version",
+      "checkUpdates": "Nach Updates suchen",
+      "upToDate": "Aktuell",
+      "updateAvailable": "Update verfügbar"
+    }
+  },
+  "common": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "close": "Schließen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "done": "Fertig",
+    "yes": "Ja",
+    "no": "Nein",
+    "ok": "OK",
+    "apply": "Anwenden",
+    "reset": "Zurücksetzen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "add": "Hinzufügen",
+    "remove": "Entfernen",
+    "browse": "Durchsuchen",
+    "loading": "Laden...",
+    "error": "Fehler",
+    "warning": "Warnung",
+    "success": "Erfolg",
+    "info": "Info"
+  },
+  "time": {
+    "seconds": {
+      "one": "{{count}} Sekunde",
+      "other": "{{count}} Sekunden"
+    },
+    "minutesSeconds": "{{minutes}}:{{seconds}}",
+    "hoursMinutes": "{{hours}}h {{minutes}}m"
+  }
+}

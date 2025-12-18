@@ -1,0 +1,184 @@
+{
+  "app": {
+    "name": "ScreenToGif",
+    "version": "Version {{version}}",
+    "tagline": "Screen, webcam and sketchboard recorder"
+  },
+  "nav": {
+    "home": "Home",
+    "recorder": "Recorder",
+    "webcam": "Webcam",
+    "board": "Board",
+    "editor": "Editor",
+    "settings": "Settings",
+    "about": "About"
+  },
+  "startup": {
+    "title": "Start Recording",
+    "recent": "Recent Projects",
+    "noRecent": "No recent projects",
+    "noRecentDescription": "Start a new recording or open an existing project",
+    "openProject": "Open Project"
+  },
+  "recorder": {
+    "title": "Screen Recorder",
+    "source": {
+      "title": "Capture Source",
+      "screen": "Screen",
+      "window": "Window",
+      "region": "Region",
+      "selectDisplay": "Select a display to capture",
+      "selectWindow": "Select a window to capture"
+    },
+    "controls": {
+      "start": "Start Recording",
+      "pause": "Pause",
+      "resume": "Resume",
+      "stop": "Stop",
+      "discard": "Discard"
+    },
+    "settings": {
+      "title": "Recording Settings",
+      "frameRate": "Frame Rate",
+      "cursor": "Capture mouse cursor",
+      "clicks": "Highlight mouse clicks",
+      "countdown": "Show countdown",
+      "startSound": "Play sound on start",
+      "stopSound": "Play sound on stop"
+    },
+    "status": {
+      "ready": "Ready",
+      "recording": "Recording",
+      "paused": "Paused",
+      "starting": "Starting...",
+      "stopping": "Stopping..."
+    }
+  },
+  "editor": {
+    "title": "Editor",
+    "timeline": {
+      "title": "Timeline",
+      "frames": "{{count}} frames",
+      "selected": "{{count}} selected"
+    },
+    "tools": {
+      "select": "Select",
+      "draw": "Draw",
+      "text": "Text",
+      "shape": "Shape"
+    },
+    "operations": {
+      "delete": "Delete",
+      "duplicate": "Duplicate",
+      "reverse": "Reverse"
+    },
+    "playback": {
+      "play": "Play",
+      "pause": "Pause",
+      "first": "First frame",
+      "last": "Last frame",
+      "loop": "Loop"
+    }
+  },
+  "export": {
+    "title": "Export",
+    "format": "Format",
+    "quality": "Quality",
+    "output": "Output",
+    "presets": "Presets",
+    "encoding": "Encoding...",
+    "complete": "Export Complete"
+  },
+  "settings": {
+    "title": "Settings",
+    "general": {
+      "title": "General",
+      "description": "Appearance, language, and startup behavior",
+      "theme": {
+        "title": "Theme",
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+      },
+      "language": {
+        "title": "Language",
+        "description": "Select your preferred language"
+      },
+      "startup": {
+        "title": "Open at startup",
+        "screen": "Startup Screen",
+        "recorder": "Recorder",
+        "editor": "Editor",
+        "lastUsed": "Last Used"
+      }
+    },
+    "recorder": {
+      "title": "Recorder",
+      "description": "Screen capture and recording defaults"
+    },
+    "editor": {
+      "title": "Editor",
+      "description": "Timeline, preview, and editing tools"
+    },
+    "hotkeys": {
+      "title": "Shortcuts",
+      "description": "Keyboard shortcuts and key bindings",
+      "global": "Enable global hotkeys",
+      "conflict": "Hotkey Conflict",
+      "reset": "Reset",
+      "resetAll": "Reset All"
+    },
+    "storage": {
+      "title": "Storage",
+      "description": "Cache, temporary files, and memory",
+      "cache": "Cache",
+      "tempFolder": "Temporary files location",
+      "clearCache": "Clear Cache"
+    },
+    "about": {
+      "title": "About",
+      "description": "Version info, license, and credits",
+      "version": "Version",
+      "checkUpdates": "Check for Updates",
+      "upToDate": "Up to Date",
+      "updateAvailable": "Update Available"
+    }
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "done": "Done",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "apply": "Apply",
+    "reset": "Reset",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "remove": "Remove",
+    "browse": "Browse",
+    "loading": "Loading...",
+    "error": "Error",
+    "warning": "Warning",
+    "success": "Success",
+    "info": "Info"
+  },
+  "time": {
+    "seconds": {
+      "one": "{{count}} second",
+      "other": "{{count}} seconds"
+    },
+    "minutesSeconds": "{{minutes}}:{{seconds}}",
+    "hoursMinutes": "{{hours}}h {{minutes}}m"
+  },
+  "errors": {
+    "generic": "An error occurred",
+    "notFound": "Not found",
+    "permission": "Permission denied",
+    "network": "Network error"
+  }
+}
