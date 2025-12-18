@@ -13,11 +13,10 @@ import { HotkeyService } from '../../services/HotkeyService';
 import { StartupPage } from '../../features/startup';
 import { RecorderPage } from '../../features/recorder/pages';
 import { EditorPage } from '../../features/editor/pages';
-import { ExportPage } from '../../features/export/pages';
 import { SettingsPage } from '../../features/settings';
 
 // Component imports
-import { Toast } from '../molecules/Toast';
+import { Toast } from '../molecules';
 import { Spinner } from '../atoms/Spinner';
 
 export interface AppShellProps {

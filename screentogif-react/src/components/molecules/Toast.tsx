@@ -5,7 +5,7 @@ import { Icon, type IconName } from '../atoms/Icon';
 export type ToastVariant = 'info' | 'success' | 'warning' | 'error';
 export type ToastPosition = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center' | 'bottom-center';
 
-export interface Toast {
+export interface ToastData {
   id: string;
   message: string;
   variant?: ToastVariant;
@@ -16,7 +16,7 @@ export interface Toast {
   };
 }
 
-export interface ToastProps extends Toast {
+export interface ToastProps extends ToastData {
   onDismiss: (id: string) => void;
 }
 
@@ -99,7 +99,7 @@ function ToastItem({ id, message, variant = 'info', duration = 5000, action, onD
 
 // Toast Container for positioning
 interface ToastContainerProps {
-  toasts: Toast[];
+  toasts: ToastData[];
   position?: ToastPosition;
   onDismiss: (id: string) => void;
 }
@@ -136,8 +136,8 @@ function ToastContainer({ toasts, position = 'top-right', onDismiss }: ToastCont
 
 // Toast Context and Provider
 interface ToastContextValue {
-  toasts: Toast[];
-  addToast: (toast: Omit<Toast, 'id'>) => string;
+  toasts: ToastData[];
+  addToast: (toast: Omit<ToastData, 'id'>) => string;
   removeToast: (id: string) => void;
   clearToasts: () => void;
 }
@@ -151,11 +151,11 @@ export interface ToastProviderProps {
 }
 
 export function ToastProvider({ children, position = 'top-right', maxToasts = 5 }: ToastProviderProps) {
-  const [toasts, setToasts] = useState<Toast[]>([]);
+  const [toasts, setToasts] = useState<ToastData[]>([]);
 
-  const addToast = useCallback((toast: Omit<Toast, 'id'>): string => {
+  const addToast = useCallback((toast: Omit<ToastData, 'id'>): string => {
     const id = `toast-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
-    const newToast: Toast = { ...toast, id };
+    const newToast: ToastData = { ...toast, id };
 
     setToasts((prev) => {
       const updated = [...prev, newToast];
@@ -195,17 +195,75 @@ export function useToast() {
   const { addToast, removeToast, clearToasts } = context;
 
   return {
-    toast: (message: string, options?: Partial<Omit<Toast, 'id' | 'message'>>) =>
+    toast: (message: string, options?: Partial<Omit<ToastData, 'id' | 'message'>>) =>
       addToast({ message, ...options }),
-    success: (message: string, options?: Partial<Omit<Toast, 'id' | 'message' | 'variant'>>) =>
+    success: (message: string, options?: Partial<Omit<ToastData, 'id' | 'message' | 'variant'>>) =>
       addToast({ message, variant: 'success', ...options }),
-    error: (message: string, options?: Partial<Omit<Toast, 'id' | 'message' | 'variant'>>) =>
+    error: (message: string, options?: Partial<Omit<ToastData, 'id' | 'message' | 'variant'>>) =>
       addToast({ message, variant: 'error', ...options }),
-    warning: (message: string, options?: Partial<Omit<Toast, 'id' | 'message' | 'variant'>>) =>
+    warning: (message: string, options?: Partial<Omit<ToastData, 'id' | 'message' | 'variant'>>) =>
       addToast({ message, variant: 'warning', ...options }),
-    info: (message: string, options?: Partial<Omit<Toast, 'id' | 'message' | 'variant'>>) =>
+    info: (message: string, options?: Partial<Omit<ToastData, 'id' | 'message' | 'variant'>>) =>
       addToast({ message, variant: 'info', ...options }),
     dismiss: removeToast,
     dismissAll: clearToasts,
   };
 }
+
+// Simple standalone Toast component for direct usage
+export interface StandaloneToastProps {
+  type: ToastVariant;
+  title: string;
+  message?: string;
+  dismissible?: boolean;
+  onDismiss?: () => void;
+}
+
+export function ToastComponent({ type, title, message, dismissible = true, onDismiss }: StandaloneToastProps) {
+  const [isExiting, setIsExiting] = useState(false);
+
+  const handleDismiss = () => {
+    setIsExiting(true);
+    setTimeout(() => {
+      onDismiss?.();
+    }, 200);
+  };
+
+  const { bg, icon, iconColor } = variantStyles[type];
+
+  return (
+    <div
+      role="alert"
+      className={`
+        flex items-start gap-3 min-w-[300px] max-w-md
+        ${bg} rounded-lg border border-surface-700
+        shadow-lg p-4
+        ${isExiting ? 'animate-fade-out' : 'animate-slide-in'}
+      `}
+    >
+      <Icon name={icon} size="md" className={`flex-shrink-0 ${iconColor}`} />
+
+      <div className="flex-1 min-w-0">
+        <p className="text-sm font-medium text-surface-100">{title}</p>
+        {message && <p className="text-sm text-surface-400 mt-1">{message}</p>}
+      </div>
+
+      {dismissible && (
+        <button
+          onClick={handleDismiss}
+          className="
+            flex-shrink-0 p-1 -m-1
+            text-surface-500 hover:text-surface-300
+            rounded transition-colors
+          "
+          aria-label="Dismiss"
+        >
+          <Icon name="close" size="sm" />
+        </button>
+      )}
+    </div>
+  );
+}
+
+// Re-export as Toast for backward compatibility with AppShell
+export { ToastComponent as Toast };

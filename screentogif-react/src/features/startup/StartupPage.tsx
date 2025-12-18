@@ -132,13 +132,17 @@ export function StartupPage({ className = '' }: StartupPageProps) {
                     className="p-4 bg-surface-800 border border-surface-700 rounded-lg hover:border-surface-600 transition-all text-left"
                   >
                     <div className="aspect-video bg-surface-700 rounded mb-3 flex items-center justify-center">
-                      <Icon name="photo" size="lg" className="text-surface-500" />
+                      {project.thumbnailUrl ? (
+                        <img src={project.thumbnailUrl} alt="" className="w-full h-full object-cover rounded" />
+                      ) : (
+                        <Icon name="photo" size="lg" className="text-surface-500" />
+                      )}
                     </div>
                     <h4 className="text-sm font-medium text-surface-200 truncate">
-                      {project.name || `Project ${index + 1}`}
+                      {project.metadata.title || `Project ${index + 1}`}
                     </h4>
                     <p className="text-xs text-surface-500 mt-1">
-                      {project.frameCount || 0} frames
+                      Last opened: {new Date(project.lastAccessedAt).toLocaleDateString()}
                     </p>
                   </button>
                 ))}
